@@ -4,7 +4,10 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-
+import Image from 'react-bootstrap/Image'
+import Row from 'react-bootstrap/Row'
+import Container from 'react-bootstrap/Container'
+import Col from 'react-bootstrap/Col'
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
@@ -36,7 +39,7 @@ const BlogIndex = ({ data, location }) => {
               <article
                 className="post-list-item"
                 itemScope
-                itemType="http://facebook.com/nwafoodjunkies"
+                itemType="http://facebook.com/groups/nwafoodjunkies"
               >
                 <header>
                   <h2>
@@ -46,6 +49,14 @@ const BlogIndex = ({ data, location }) => {
                   </h2>
                   <small>{post.frontmatter.date}</small>
                 </header>
+                <Container>
+                  <Row>
+                    <Col xs={6} md={4}>
+                      <Image src="/food.jpg" thumbnail />
+                    </Col>
+                  </Row>
+                </Container>
+
                 <section>
                   <p
                     dangerouslySetInnerHTML={{
